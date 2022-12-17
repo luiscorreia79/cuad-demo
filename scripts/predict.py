@@ -27,6 +27,7 @@ def run_prediction(question_texts, context_text, model_path):
     def to_list(tensor):
         return tensor.detach().cpu().tolist()
 
+    print("Initializing objects")
     config_class, model_class, tokenizer_class = (
         AutoConfig, AutoModelForQuestionAnswering, AutoTokenizer)
     config = config_class.from_pretrained(model_path)
@@ -40,6 +41,7 @@ def run_prediction(question_texts, context_text, model_path):
     processor = SquadV2Processor()
     examples = []
 
+    print("Creating squad examples")
     for i, question_text in enumerate(question_texts):
         example = SquadExample(
             qas_id=str(i),
@@ -53,6 +55,7 @@ def run_prediction(question_texts, context_text, model_path):
 
         examples.append(example)
 
+    print("Converting examples to features")
     features, dataset = squad_convert_examples_to_features(
         examples=examples,
         tokenizer=tokenizer,
@@ -64,12 +67,17 @@ def run_prediction(question_texts, context_text, model_path):
         threads=1,
     )
 
+    print("Loading eval sampler")
     eval_sampler = SequentialSampler(dataset)
+
+    print("Loading dataloader")
     eval_dataloader = DataLoader(dataset, sampler=eval_sampler, batch_size=10)
 
     all_results = []
 
+    print("Loading batches")
     for batch in eval_dataloader:
+        print("- Eval model")
         model.eval()
         batch = tuple(t.to(device) for t in batch)
 
@@ -82,8 +90,10 @@ def run_prediction(question_texts, context_text, model_path):
 
             example_indices = batch[3]
 
+            print("-Load into model")
             outputs = model(**inputs)
 
+            print("-Enumerate indices")
             for i, example_index in enumerate(example_indices):
                 eval_feature = features[example_index.item()]
                 unique_id = int(eval_feature.unique_id)
@@ -94,6 +104,7 @@ def run_prediction(question_texts, context_text, model_path):
                 result = SquadResult(unique_id, start_logits, end_logits)
                 all_results.append(result)
 
+    print("Making final predictions")
     final_predictions = compute_predictions_logits(
         all_examples=examples,
         all_features=features,

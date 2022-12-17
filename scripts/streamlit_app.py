@@ -67,7 +67,8 @@ if (not len(paragraph)==0) and not (len(question)==0):
 	# end_index = torch.argmax(end_scores)
 	# answer = tokenizer.convert_tokens_to_string(tokens[start_index:end_index+1])
 	prediction = run_prediction(question, paragraph, '../cuad-models/roberta-base/')
-	st.write("Answer: " + prediction.strip())
+	st.write("Answer: ")
+	st.write(prediction)
 	
 
 my_expander = st.beta_expander("Sample Contract", expanded=False)
