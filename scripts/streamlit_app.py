@@ -15,7 +15,7 @@ def load_model():
 
 @st.cache(show_spinner=False, persist=True)
 def load_questions():
-    with open('cuad-data/test.json') as json_file:
+    with open('cuad-demo/test.json') as json_file:
         data = json.load(json_file)
     questions = []
     for i, q in enumerate(data['data'][0]['paragraphs'][0]['qas']):
