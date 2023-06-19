@@ -52,5 +52,5 @@ if not (len(paragraph) == 0) and not (len(question) == 0):
     st.write("Answer: ")
     st.write(prediction)
 
-my_expander = st.beta_expander("Sample Contract", expanded=False)
+my_expander = st.expander("Sample Contract", expanded=False)
 my_expander.write(contracts[1])
