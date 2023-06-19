@@ -7,13 +7,13 @@ from predict import run_prediction
 
 st.set_page_config(layout="wide")
 
-@st.cache_resource(show_spinner=False, persist=True)
+@st.cache_resource(show_spinner=False)
 def load_model():
     model = AutoModelForQuestionAnswering.from_pretrained('bert-large-uncased-whole-word-masking-finetuned-squad')
     tokenizer = AutoTokenizer.from_pretrained('bert-large-uncased-whole-word-masking-finetuned-squad', use_fast=False)
     return model, tokenizer
 
-@st.cache_resource(show_spinner=False, persist=True)
+@st.cache_resource(show_spinner=False)
 def load_questions():
     with open('test.json') as json_file:
         data = json.load(json_file)
@@ -23,7 +23,7 @@ def load_questions():
         questions.append(question)
     return questions
 
-@st.cache_resource(show_spinner=False, persist=True)
+@st.cache_resource(show_spinner=False)
 def load_contracts():
     with open('test.json') as json_file:
         data = json.load(json_file)
