@@ -53,7 +53,7 @@ paragraph = st.text_area(label="Contract")
 
 if not (len(paragraph) == 0) and not (len(question) == 0):
     prediction = run_prediction(question, paragraph, 'Rakib/roberta-base-on-cuad')
-    st.write("Answer: " + prediction.strip())
+    st.write("Answer: " + str(prediction).strip())
     st.write("Answer: ")
     st.write(prediction)
 
