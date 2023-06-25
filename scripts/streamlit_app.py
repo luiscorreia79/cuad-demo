@@ -40,7 +40,7 @@ contracts = load_contracts()
 st.header("Contract Understanding Atticus Dataset (CUAD) Demo")
 st.write("This demo uses a machine learning model for Contract Understanding.")
 
-add_text_sidebar = st.sidebar.title("Menu")
+add_text_sidebar = st.sidebar.title("Sidebar Test Menu")
 add_text_sidebar = st.sidebar.text("Hello, world!")
 
 question = st.selectbox('Choose one of the 41 queries from the CUAD dataset:', questions)
