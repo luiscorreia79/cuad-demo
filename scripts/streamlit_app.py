@@ -48,7 +48,7 @@ def load_model():
     tokenizer = AutoTokenizer.from_pretrained('bert-large-uncased-whole-word-masking-finetuned-squad', use_fast=False)
     return model, tokenizer
 
-@st.cache_data(show_spinner=False, persist=True)
+@st.cache_resource(show_spinner=False)
 def load_questions():
     with open('test.json') as json_file:
         data = json.load(json_file)
