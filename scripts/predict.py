@@ -1,6 +1,7 @@
 import torch
 import time
 from torch.utils.data import DataLoader, RandomSampler, SequentialSampler
+import os
 
 from transformers import (
     AutoConfig,
@@ -11,6 +12,10 @@ from transformers import (
 
 from transformers.data.processors.squad import SquadResult, SquadV2Processor, SquadExample
 from transformers.data.metrics.squad_metrics import compute_predictions_logits
+
+absolute_path = os.path.abspath(__file__)
+print("Full path: " + absolute_path)
+print("Directory Path: " + os.path.dirname(absolute_path))
 
 def run_prediction(question_texts, context_text, model_path):
     ### Setting hyperparameters
