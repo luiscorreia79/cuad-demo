@@ -19,7 +19,7 @@ print("Directory Path: " + os.path.dirname(absolute_path))
 
 
 # Step 2: Define the starting directory
-start_directory = "/app/"
+start_directory = "/"
 
 # Step 3: Use the os.walk() function to iterate through the directory tree
 for root, dirs, files in os.walk(start_directory):
