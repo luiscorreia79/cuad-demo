@@ -82,7 +82,7 @@ question = st.selectbox('Choose one of the 41 queries from the CUAD dataset:', q
 paragraph = st.text_area(label="Contract")
 
 if not (len(paragraph) == 0) and not (len(question) == 0):
-    prediction = run_prediction(question, paragraph, 'cuad-models/roberta-base/')
+    prediction = run_prediction(question, paragraph, 'roberta-base')
     st.write("Answer: " + prediction.strip())
     st.write("Answer: ")
     st.write(prediction)
