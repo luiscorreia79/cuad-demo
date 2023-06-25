@@ -7,3 +7,4 @@ curl https://zenodo.org/record/4599830/files/roberta-base.zip?download=1 --outpu
 unzip cuad-models/roberta-base.zip -d cuad-models/
 pip install torch
 pip install transformers
+echo "end preparation.sh!"
