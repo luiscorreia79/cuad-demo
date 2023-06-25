@@ -49,7 +49,7 @@ def run_prediction(question_texts, context_text, model_path):
     null_score_diff_threshold = 0.0
 
     #model_name_or_path = "/cuad-models/roberta-base/"
-    model_name_or_path = "roberta-base/"
+    model_name_or_path = "Rakib/roberta-base-on-cuad/"
 
     def to_list(tensor):
         return tensor.detach().cpu().tolist()
