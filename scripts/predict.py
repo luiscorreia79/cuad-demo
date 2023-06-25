@@ -48,7 +48,8 @@ def run_prediction(question_texts, context_text, model_path):
     do_lower_case = False
     null_score_diff_threshold = 0.0
 
-    model_name_or_path = "/cuad-models/roberta-base/"
+    #model_name_or_path = "/cuad-models/roberta-base/"
+    model_name_or_path = "roberta-base/"
 
     def to_list(tensor):
         return tensor.detach().cpu().tolist()
