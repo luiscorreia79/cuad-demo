@@ -17,6 +17,18 @@ absolute_path = os.path.abspath(__file__)
 print("Full path: " + absolute_path)
 print("Directory Path: " + os.path.dirname(absolute_path))
 
+
+# Step 2: Define the starting directory
+start_directory = "/app/"
+
+# Step 3: Use the os.walk() function to iterate through the directory tree
+for root, dirs, files in os.walk(start_directory):
+  # Step 4: Print the file names
+  for file_name in files:
+    # Combine the root directory path with the file name
+    full_path = os.path.join(root, file_name)
+    print(full_path)
+
 def run_prediction(question_texts, context_text, model_path):
     ### Setting hyperparameters
     max_seq_length = 512
