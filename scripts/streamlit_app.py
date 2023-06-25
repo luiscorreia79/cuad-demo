@@ -12,30 +12,30 @@ import requests
 
 ########
 # Change to parent directory
-os.chdir("..")
+#os.chdir("..")
 
 # Clone the Git repository
-os.system("git clone https://github.com/TheAtticusProject/cuad.git")
+#os.system("git clone https://github.com/TheAtticusProject/cuad.git")
 
 # Rename the directory
-shutil.move("cuad", "cuad-training")
+#shutil.move("cuad", "cuad-training")
 
 # Extract data.zip
-with zipfile.ZipFile("cuad-training/data.zip", "r") as zip_ref:
-    zip_ref.extractall("cuad-data")
+#with zipfile.ZipFile("cuad-training/data.zip", "r") as zip_ref:
+#    zip_ref.extractall("cuad-data")
 
 # Create the cuad-models directory
-os.mkdir("cuad-models")
+#os.mkdir("cuad-models")
 
 # Download roberta-base.zip
-url = "https://zenodo.org/record/4599830/files/roberta-base.zip?download=1"
-response = requests.get(url)
-with open("cuad-models/roberta-base.zip", "wb") as file:
-    file.write(response.content)
+#url = "https://zenodo.org/record/4599830/files/roberta-base.zip?download=1"
+#response = requests.get(url)
+#with open("cuad-models/roberta-base.zip", "wb") as file:
+#    file.write(response.content)
 
 # Extract roberta-base.zip
-with zipfile.ZipFile("cuad-models/roberta-base.zip", "r") as zip_ref:
-    zip_ref.extractall("cuad-models")
+#with zipfile.ZipFile("cuad-models/roberta-base.zip", "r") as zip_ref:
+#    zip_ref.extractall("cuad-models")
 
 ########
 
