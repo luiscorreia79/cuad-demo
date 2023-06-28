@@ -47,7 +47,7 @@ st.write("This demo uses a machine learning model for Contract Understanding.")
 
 add_text_sidebar = st.sidebar.title("Sidebar Test Menu")
 add_text_sidebar = st.sidebar.text("This Demo is available on:")
-add_text_sidebar = st.sidebar.text("https://huggingface.co/spaces/marshmellow77/contract-review")
+add_text_sidebar = st.sidebar.markdown("[https://huggingface.co/spaces/marshmellow77/contract-review](https://huggingface.co/spaces/marshmellow77/contract-review)")
 
 
 question = st.selectbox('Choose one of the 41 queries from the CUAD dataset:', questions)
