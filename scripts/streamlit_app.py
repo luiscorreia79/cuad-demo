@@ -46,7 +46,9 @@ st.header("Contract Understanding Atticus Dataset (CUAD) Demo")
 st.write("This demo uses a machine learning model for Contract Understanding.")
 
 add_text_sidebar = st.sidebar.title("Sidebar Test Menu")
-add_text_sidebar = st.sidebar.text("Hello, world!")
+add_text_sidebar = st.sidebar.text("This Demo is available on:")
+add_text_sidebar = st.sidebar.text("https://huggingface.co/spaces/marshmellow77/contract-review")
+
 
 question = st.selectbox('Choose one of the 41 queries from the CUAD dataset:', questions)
 paragraph = st.text_area(label="Contract")
